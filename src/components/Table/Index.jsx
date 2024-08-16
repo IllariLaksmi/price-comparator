@@ -56,7 +56,11 @@ export default function Table({data}) {
 console.log(data)
 
 const subHeaderTemplate = (price) => {
-    return "Producto: "+ price.product_name 
+    return (
+        <div className="flex align-items-center gap-2">
+            <span className="font-bolder">{price.product_name}</span>
+        </div>
+    );
 }
     return (
         <div className="card">
@@ -66,6 +70,7 @@ const subHeaderTemplate = (price) => {
             
                 <Column field="price" header="Precio" sortable body={priceBodyTemplate}></Column>
                 <Column field="store_name" header="Tienda" body={ratingBodyTemplate}></Column>
+                <Column field="amount" header="Cantidad"></Column>
                 <Column field="category_name" header="Categoría"></Column>
             </DataTable>
         </div>

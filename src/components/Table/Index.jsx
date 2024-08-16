@@ -12,7 +12,7 @@ export default function Table({data}) {
 
 
     const formatCurrency = (value) => {
-        return value.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+        return value.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' });
     };
 
     const imageBodyTemplate = (product) => {

@@ -47,7 +47,7 @@ export const ComparingPage =  ({dbUrl}) => {
                 category_name: category ? category.name : 'Unknown Category',
                 store_name: store ? store.name : 'Unknown Store',
                 price: price.price,
-                product_id: price.product_id
+                product_id: price.id_product.replaceAll(" ", "")
             };
         });
 

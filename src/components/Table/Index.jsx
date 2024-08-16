@@ -7,7 +7,7 @@ import { Tag } from 'primereact/tag';
 
 
 
-export default function Table() {
+export default function Table({data}) {
     const [products, setProducts] = useState([]);
 
 
@@ -24,7 +24,7 @@ export default function Table() {
     };
 
     const ratingBodyTemplate = (product) => {
-        return <Rating value={product.rating} readOnly cancel={false} />;
+        return <Tag value={product.store_name} severity={getSeverity(product)}></Tag>;
     };
 
     const statusBodyTemplate = (product) => {
@@ -32,15 +32,15 @@ export default function Table() {
     };
 
     const getSeverity = (product) => {
-        switch (product.inventoryStatus) {
-            case 'INSTOCK':
+        switch (product.store_name) {
+            case 'Alcampo':
+                return 'danger';
+
+            case 'Mercadona':
                 return 'success';
 
-            case 'LOWSTOCK':
-                return 'warning';
-
-            case 'OUTOFSTOCK':
-                return 'danger';
+            case 'Bonarea':
+                return 'info';
 
             default:
                 return null;
@@ -52,17 +52,21 @@ export default function Table() {
             <span className="text-xl text-900 font-bold">Comparador de precios</span>
         </div>
     );
-    const footer = `In total there are ${products ? products.length : 0} products.`;
+    const footer = `Total: ${data ? data.length : 0} precios.`;
+console.log(data)
 
+const subHeaderTemplate = (price) => {
+    return "Producto: "+ price.product_name 
+}
     return (
         <div className="card">
-            <DataTable value={products} header={header} footer={footer} tableStyle={{ minWidth: '60rem' }}>
-                <Column field="name" header="Name"></Column>
-                <Column header="Image" body={imageBodyTemplate}></Column>
-                <Column field="price" header="Price" body={priceBodyTemplate}></Column>
-                <Column field="category" header="Category"></Column>
-                <Column field="rating" header="Reviews" body={ratingBodyTemplate}></Column>
-                <Column header="Status" body={statusBodyTemplate}></Column>
+            <DataTable value={data} header={header} footer={footer} rowGroupMode="subheader" groupRowsBy="product_name" tableStyle={{ minWidth: '60rem' }}
+            rowGroupHeaderTemplate={subHeaderTemplate}
+            >
+            
+                <Column field="price" header="Precio" body={priceBodyTemplate}></Column>
+                <Column field="category_name" header="Categoría"></Column>
+                <Column field="store_name" header="Tienda" body={ratingBodyTemplate}></Column>
             </DataTable>
         </div>
     );

@@ -59,6 +59,9 @@ export const ComparingPage =  ({dbUrl}) => {
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     return <>
+    <div className="card">
         <Table data={data}/>
+    </div>
+       
     </>
 }

@@ -61,7 +61,7 @@ const subHeaderTemplate = (price) => {
     return (
         <div className="card">
             <DataTable value={data} header={header} footer={footer} rowGroupMode="subheader" groupRowsBy="product_name" tableStyle={{ minWidth: '60rem' }}
-            rowGroupHeaderTemplate={subHeaderTemplate}
+            rowGroupHeaderTemplate={subHeaderTemplate} 
             >
             
                 <Column field="price" header="Precio" body={priceBodyTemplate}></Column>

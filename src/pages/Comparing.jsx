@@ -37,6 +37,8 @@ export const ComparingPage =  ({dbUrl}) => {
         setCategories(categoriesData);
 
         const comparisonTable = pricesData.map(price => {
+
+            const {amount, recommended} = price;
             // Find the corresponding product, category, and store by their IDs
             const product = productsData.find(product => product.id === price.id_product.replaceAll(" ", ""));
             const category = categoriesData.find(category => category.id === product.id_category.replaceAll(" ", ""));
@@ -47,8 +49,9 @@ export const ComparingPage =  ({dbUrl}) => {
                 category_name: category ? category.name : 'Unknown Category',
                 store_name: store ? store.name : 'Unknown Store',
                 price: price.price,
+                recommended,
                 product_id: price.id_product.replaceAll(" ", ""),
-                amount: price.amount
+                amount
             };
         });
 

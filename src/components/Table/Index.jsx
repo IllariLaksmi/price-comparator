@@ -62,12 +62,26 @@ const subHeaderTemplate = (price) => {
         </div>
     );
 }
+const topPickBody = (price) => {
+    return (
+        <div className="flex align-items-center">
+          {price.recommended && <i className="pi pi-check" style={{ color: 'green' }}></i>}
+        </div>
+    );
+}
+const rowClass = (data) => {
+    console.log(data.recommended)
+    return {
+        'bg-secondary': data.recommended 
+    };
+};
     return (
         <div className="card">
-            <DataTable value={data} header={header} footer={footer} rowGroupMode="rowspan" groupRowsBy="product_id" sortMode="single" sortField="product_id" tableStyle={{ minWidth: '30rem' }}
+            <DataTable value={data}  header={header} footer={footer} rowGroupMode="rowspan" groupRowsBy="product_id" sortMode="single" sortField="product_id" tableStyle={{ minWidth: '30rem' }}
              sortOrder={1} 
             >
                 <Column field="product_id" header="Producto" body={subHeaderTemplate} ></Column>
+                <Column field="recommended"  body={topPickBody}></Column>
                 <Column field="price" header="Precio" sortable body={priceBodyTemplate}></Column>
                 <Column field="store_name" header="Tienda" body={ratingBodyTemplate}></Column>
                 <Column field="amount" header="Cantidad"></Column>

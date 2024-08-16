@@ -1,10 +1,16 @@
 import './App.css';
+import 'primeflex/primeflex.css';  
+
+import 'primeicons/primeicons.css';
+        
+import 'primereact/resources/primereact.css';
 import 'primereact/resources/themes/lara-dark-teal/theme.css'; //theme
 import { PrimeReactProvider } from 'primereact/api';
 import { ComparingPage } from './pages/Comparing';
 
 import { initializeApp } from "@firebase/app";
 import { getFirestore } from "@firebase/firestore";
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyA_MaHjwqlQTEjk9cvCsx27uUarfFLilt4",

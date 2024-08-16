@@ -49,8 +49,7 @@ export default function Table() {
 
     const header = (
         <div className="flex flex-wrap align-items-center justify-content-between gap-2">
-            <span className="text-xl text-900 font-bold">Products</span>
-            <Button icon="pi pi-refresh" rounded raised />
+            <span className="text-xl text-900 font-bold">Comparador de precios</span>
         </div>
     );
     const footer = `In total there are ${products ? products.length : 0} products.`;

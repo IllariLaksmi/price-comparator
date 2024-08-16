@@ -1,5 +1,5 @@
 import './App.css';
-import 'primereact/resources/themes/lara-light-indigo/theme.css'; //theme
+import 'primereact/resources/themes/lara-dark-teal/theme.css'; //theme
 import { PrimeReactProvider } from 'primereact/api';
 import { ComparingPage } from './pages/Comparing';
 

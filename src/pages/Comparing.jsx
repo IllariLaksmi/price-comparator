@@ -19,7 +19,7 @@ export const ComparingPage =  ({dbUrl}) => {
 getStores()
 
 return <>
-    <p>Comparador de precios</p>
+   
 
     <Table/>
   </>

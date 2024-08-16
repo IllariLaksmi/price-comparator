@@ -65,8 +65,8 @@ const subHeaderTemplate = (price) => {
             >
             
                 <Column field="price" header="Precio" sortable body={priceBodyTemplate}></Column>
-                <Column field="category_name" header="Categoría"></Column>
                 <Column field="store_name" header="Tienda" body={ratingBodyTemplate}></Column>
+                <Column field="category_name" header="Categoría"></Column>
             </DataTable>
         </div>
     );
